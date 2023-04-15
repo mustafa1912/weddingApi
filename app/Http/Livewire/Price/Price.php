@@ -18,6 +18,7 @@ class Price extends Component
             ->where('id', 'price_id');
 
                }])->get();
+
     //dd($prices);
         return view('livewire.price.price',compact('prices'));
     }
@@ -140,5 +141,6 @@ class Price extends Component
         $this->image=$PortFolios->image;
 
     }
+
 
 }
