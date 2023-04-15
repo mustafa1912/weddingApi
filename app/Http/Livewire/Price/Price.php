@@ -13,7 +13,12 @@ class Price extends Component
 
 
     public function render()
-    {  $prices=\App\Models\Price::get();
+    {  $prices=\App\Models\Price::select('*')->with(['description' => function ($q) {
+        $q->select('id', 'price_id', 'notes')
+            ->where('id', 'price_id');
+
+               }])->get();
+    //dd($prices);
         return view('livewire.price.price',compact('prices'));
     }
     public function addRow(){
@@ -55,17 +60,19 @@ class Price extends Component
     public function store(){
 
        $this->validate();
-        //dd($this->all());
-       foreach ($this->inputs as $key=>$input){
-           \App\Models\Price::create([
-               'name'=>$this->name,
-               'price'=>$this->price,
-               'discount'=>$this->discount,
-               'image'=>$this->image->store(auth('web')->user()->name,'public'),
-                'notes'=>$input['notes']
-           ]);
 
-       }
+        //dd($this->all());
+        $price=\App\Models\Price::create([
+            'price'=>$this->price,
+            'discount'=>$this->discount,
+            'image'=>$this->image->store(auth('web')->user()->name,'public'),
+        ]);
+        foreach ($this->inputs as $key=>$input) {
+            \App\Models\description::create([
+                'price_id'=>$price->id,
+                'notes'=>$input['notes']
+            ]);
+        };
         $this->inputs=[];
         $this->rest();
         session()->flash('success','تم بنجاح');

@@ -25,6 +25,7 @@ Route::get('/client', [\App\Http\Controllers\Api\ApiController::class,'client'])
 Route::get('/team', [\App\Http\Controllers\Api\ApiController::class,'team']);
 Route::get('/artical', [\App\Http\Controllers\Api\ApiController::class,'artical']);
 Route::get('/companySetting', [\App\Http\Controllers\Api\ApiController::class,'setting']);
+Route::get('/description/{id}', [\App\Http\Controllers\Api\ApiController::class,'description']);
 
 
 Route::post('/store', [\App\Http\Controllers\Api\ApiController::class,'store']);

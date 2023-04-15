@@ -8,5 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     use HasFactory;
-    protected $fillable=['image','price','discount','discount_percentage','name','notes','details'];
+    protected $fillable=['image'
+        ,'price'
+        ,'discount'
+        ,'discount_percentage'
+        ,
+        'name'
+        ,'notes'
+        ,'details'];
+
+    public function description(){
+        return $this->hasMany(description::class,'price_id');
+    }
 }
