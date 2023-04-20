@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('notes')->nullable();
             $table->string('links')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twiter')->nullable();
+            $table->string('insta')->nullable();
             $table->string('tel')->nullable();
             $table->string('email')->nullable();
             $table->timestamps();

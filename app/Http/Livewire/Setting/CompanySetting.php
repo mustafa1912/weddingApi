@@ -15,6 +15,9 @@ class CompanySetting extends Component
         $links,
         $tel,
         $email,
+        $facebook,
+        $insta,
+        $twiter,
          $setting_id;
 
     public function render()
@@ -32,38 +35,26 @@ class CompanySetting extends Component
             $this->notes=$setting->notes;
             $this->email=$setting->email;
             $this->setting_id=$setting->id;
+            $this->facebook=$setting->facebook;
+            $this->twiter=$setting->twiter;
+            $this->insta=$setting->insta;
             $this->image=$setting->image;
         }
 
         //dd($this->setting_id);
     }
 
-    protected function rules(){
-        return
-            [
-                'name'=>'required',
-                'email'=>'required',
-            ];
-    }
-
-    protected $messages = [
-        'required' => 'هذا الحقل مطلوب.',
-
-    ];
-
-    public function updated($fields){
-        $this->validateOnly($fields);
-    }
 
 
 
     public function store(){
-            $this->validate();
+
        /// dd($this->all());
         $inputImage='';
         if($this->image){
             $inputImage=$this->image->store(auth('web')->user()->name,'public');
         }
+        else{
 \App\Models\CompanySetting::updateOrCreate([],
     [
         'name'=>$this->name,
@@ -73,12 +64,16 @@ class CompanySetting extends Component
         'tel'=>$this->tel,
         'notes'=>$this->notes,
         'email'=>$this->email,
+        'facebook'=>$this->facebook,
+        'twiter'=>$this->twiter,
+        'insta'=>$this->insta,
         'created_at'=>Carbon::now(),
         'updated_at'=>Carbon::now(),
 
     ]);
     session()->flash('success','تم الحفظ بنجاح');
     }
+}
     public function show(){
 
         $setting=\App\Models\CompanySetting::first();
