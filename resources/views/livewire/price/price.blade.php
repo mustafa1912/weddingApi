@@ -26,6 +26,7 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $price->price }}</td>
                         <td>{{ $price->discount }}</td>
+                        <td>{{ $price->notes }}</td>
                         <td><img style="width: 50px;height: 50px;"
                                  src="{{asset('public/'.Storage::url($price->image))}}"></td>
 
