@@ -38,7 +38,7 @@ class CompanySetting extends Component
             $this->facebook=$setting->facebook;
             $this->twiter=$setting->twiter;
             $this->insta=$setting->insta;
-            $this->image=$setting->image;
+//            $this->image=$setting->image;
         }
 
         //dd($this->setting_id);
@@ -49,16 +49,30 @@ class CompanySetting extends Component
 
     public function store(){
 
-       /// dd($this->all());
+//        dd($this->all());
         $inputImage='';
         if($this->image){
-            $inputImage=$this->image->store(auth('web')->user()->name,'public');
+            \App\Models\CompanySetting::updateOrCreate([],
+                [
+                    'name'=>$this->name,
+                    'image'=>$this->image->store(auth('web')->user()->name,'public'),
+                    'address'=>$this->address,
+                    'links'=>$this->links,
+                    'tel'=>$this->tel,
+                    'notes'=>$this->notes,
+                    'email'=>$this->email,
+                    'facebook'=>$this->facebook,
+                    'twiter'=>$this->twiter,
+                    'insta'=>$this->insta,
+                    'created_at'=>Carbon::now(),
+                    'updated_at'=>Carbon::now(),
+
+                ]);
         }
         else{
 \App\Models\CompanySetting::updateOrCreate([],
     [
         'name'=>$this->name,
-        'image'=>$inputImage,
         'address'=>$this->address,
         'links'=>$this->links,
         'tel'=>$this->tel,
@@ -71,9 +85,10 @@ class CompanySetting extends Component
         'updated_at'=>Carbon::now(),
 
     ]);
-    session()->flash('success','تم الحفظ بنجاح');
     }
-}
+        session()->flash('success','تم الحفظ بنجاح');
+
+    }
     public function show(){
 
         $setting=\App\Models\CompanySetting::first();

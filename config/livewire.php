@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'asset_url' => 'http://localhost/livewire-master',
+    'asset_url' => 'http://localhost/pro-freelancer',
 
     /*
     |--------------------------------------------------------------------------
