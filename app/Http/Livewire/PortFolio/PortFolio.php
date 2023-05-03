@@ -29,7 +29,9 @@ class PortFolio extends Component
         'required' => 'هذا الحقل مطلوب.',
 
     ];
-
+    public function mount(){
+        $this->date=date('Y-m-d');
+    }
     public function updated($fields){
         $this->validateOnly($fields);
     }
@@ -38,7 +40,7 @@ class PortFolio extends Component
         $this->main_address='';
         $this->image='';
         $this->category='';
-        $this->date='';
+        $this->date=date('Y-m-d');
     }
     public function closeModal(){
         $this->rest();
