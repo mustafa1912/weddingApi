@@ -77,7 +77,7 @@
                     <h4>team Photo ?</h4>
                 </div>
                 <div class="modal-body" style="text-align: center">
-
+            <img src="{{asset('public/'.\Illuminate\Support\Facades\Storage::url($image))}}">
                 </div>
 
                 <div class="modal-footer">
