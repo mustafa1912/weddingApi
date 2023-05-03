@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3">
             <div class="mb-3">
-                <label>موافع التواصل</label>
+                <label>مواقع التواصل</label>
                 <input type="text" wire:model="links" class="form-control">
                 @error('links') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
@@ -43,6 +43,30 @@
                 <label>الايميل</label>
                 <input type="email" wire:model="email" class="form-control">
                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+            {{--                            <input type="text" wire:model="category" class="form-control">--}}
+        </div>
+        <div class="mb-3">
+            <div class="mb-3">
+                <label>facebook</label>
+                <input type="text" wire:model="facebook" class="form-control">
+                @error('facebook') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+            {{--                            <input type="text" wire:model="category" class="form-control">--}}
+        </div>
+        <div class="mb-3">
+            <div class="mb-3">
+                <label>twiter</label>
+                <input type="text" wire:model="twiter" class="form-control">
+                @error('twiter') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+            {{--                            <input type="text" wire:model="category" class="form-control">--}}
+        </div>
+        <div class="mb-3">
+            <div class="mb-3">
+                <label>insta</label>
+                <input type="text" wire:model="insta" class="form-control">
+                @error('insta') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             {{--                            <input type="text" wire:model="category" class="form-control">--}}
         </div>

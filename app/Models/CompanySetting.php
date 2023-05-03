@@ -16,5 +16,8 @@ class CompanySetting extends Model
         'links',
         'tel',
         'email',
+        'twiter',
+        'facebook',
+        'insta',
     ];
 }

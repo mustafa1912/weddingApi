@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Artical;
 use App\Models\Client;
 use App\Models\CompanySetting;
-use App\Models\Discription;
+use App\Models\description;
 use App\Models\Portfolio;
 use App\Models\Price;
 use App\Models\slider;
@@ -57,17 +57,13 @@ class ApiController extends Controller
         $setting = CompanySetting::get();
         return response()->json($setting);
     }
-    public function description($id)
+    public function description()
     {
-        $price = Price::find($id);
-        if ($price) {
-            $description = \App\Models\description::where('price_id', $price->id)->get();
+        $prices = Price::get();
+
+           foreach ($prices as $price){
+            $description = description::where('price_id', $price->id)->get();
             return response()->json($description);
-
-        } else {
-            return json_encode('not found');
-
-        }
-        //dd($description);
+           }
     }
 }
