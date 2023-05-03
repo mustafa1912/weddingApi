@@ -23,7 +23,7 @@ class ArticalComponent extends Component
         return view('livewire.artical.artical-component',compact('articals'));
     }
     public function mount(){
-        $this->date=date('Y-m-');
+        $this->date=date('Y-m-d');
     }
 
     protected function rules(){
@@ -48,7 +48,7 @@ class ArticalComponent extends Component
         $this->category='';
         $this->address='';
         $this->notes='';
-        $this->date='';
+        $this->date=date('Y-m-d');
     }
 
     public function store(){
