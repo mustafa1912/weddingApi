@@ -68,34 +68,36 @@
                 </div>
                 <form wire:submit.prevent="store()">
                     <div class="modal-body">
-                        <div class="mb-3">
+                    <div class="row">
+                         <div class="col-sm-4 mb-3">
                             <label>العنوان</label>
                             <input type="text" wire:model="main_address" class="form-control">
                             @error('main_address') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>التصنيف</label>
                             <select  wire:model="category" class='form-control'>
                                 <option value="" hidden>اختر التصنيف</option>
-@foreach($categouries as $categoury)
+            @foreach($categouries as $categoury)
                                 <option value="{{$categoury->name}}">{{$categoury->name}}</option>
-@endforeach
+                    @endforeach
                             </select>
-{{--                            <input type="text" wire:model="category" class="form-control">--}}
+        {{--    <input type="text" wire:model="category" class="form-control">--}}
                             @error('category') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>الصوره</label>
                             <input type="file" wire:model="image" accept="image/*" class="form-control">
                             @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>التاريخ</label>
                             <input type="date" wire:model="date" class="form-control">
                             @error('date') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
 
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" wire:click="closeModal"
@@ -143,12 +145,13 @@
                 </div>
                 <form wire:submit.prevent="update()">
                     <div class="modal-body">
-                        <div class="mb-3">
+                    <div class="row">
+                         <div class="col-sm-4 mb-3">
                             <label>العنوان</label>
                             <input type="text" wire:model="main_address" class="form-control">
                             @error('main_address') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>التصنيف</label>
                             <select  wire:model="category">
                                 <option value="" >اختر التصنيف</option>
@@ -159,18 +162,19 @@
                             {{--                            <input type="text" wire:model="category" class="form-control">--}}
                             @error('category') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>الصوره</label>
                             <input type="file" accept="image/*" wire:model="image" class="form-control">
                             @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                         <div class="col-sm-4 mb-3">
                             <label>التاريخ</label>
                             <input type="date" wire:model="date" class="form-control">
                             @error('date') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
 
 
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" wire:click="closeModal"

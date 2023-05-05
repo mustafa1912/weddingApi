@@ -20369,7 +20369,7 @@ ul.list-unstyled li {
   position: fixed;
   top: 58px;
   left: 0;
-  width: 230px;
+  width: 230px !important ;
   margin-left: 0;
   bottom: 0;
   z-index: 100;
@@ -22105,7 +22105,8 @@ select.form-control-sm:not([size]):not([multiple]) {
   background: #f6f7f8;
   color: #323232;
   border: 0px solid transparent;
-  box-shadow: none; }
+  box-shadow: none;
+}
   .form-control label {
     color: #323232;
     margin-top: 8px;

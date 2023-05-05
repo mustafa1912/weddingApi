@@ -8,7 +8,7 @@
                 </button>
             </h4>
         </div>
-{{--        edit--}}
+{{-- edit--}}
         <div wire:ignore.self class="modal fade" id="update" tabindex="-1" aria-labelledby="updatePortfolio"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">

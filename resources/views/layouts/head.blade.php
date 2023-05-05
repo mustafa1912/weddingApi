@@ -13,7 +13,9 @@
 
 <!--- Style css -->
 @if (App::getLocale() == 'en')
-    <link href="{{ URL::asset('public/assets/css/ltr.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('public/assets/css/ltr.css') }}" rel="stylesheet">
 @else
-    <link href="{{ URL::asset('public/assets/css/rtl.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('public/assets/css/rtl.css') }}" rel="stylesheet">
 @endif
+
+<link href="{{ URL::asset('public/assets/css/bootstrap.css') }}" rel="stylesheet">

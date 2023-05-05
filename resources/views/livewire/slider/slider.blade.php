@@ -20,22 +20,23 @@
                     </div>
                     <form wire:submit.prevent="update()" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <div class="mb-3">
-                                <label>العنوان</label>
-                                <input type="text" wire:model="address" class="form-control">
-                                @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                            <div class='row'>
+                                <div class="col-sm-4 mb-3">
+                                    <label>العنوان</label>
+                                    <input type="text" wire:model="address" class="form-control">
+                                    @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-sm-4 mb-3">
+                                    <label>ملاحظات</label>
+                                    <input type="text" wire:model="notes" class="form-control">
+                                    @error('notes') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
+                                <div class="col-sm-4 mb-3">
+                                    <label>الصوره</label>
+                                    <input type="file" wire:model="image" accept="image/*" class="form-control">
+                                    @error('image') <span class="text-danger">{{ $message }}</span> @enderror
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label>ملاحظات</label>
-                                <input type="text" wire:model="notes" class="form-control">
-                                @error('notes') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-                            <div class="mb-3">
-                                <label>الصوره</label>
-                                <input type="file" wire:model="image" accept="image/*" class="form-control">
-                                @error('image') <span class="text-danger">{{ $message }}</span> @enderror
-                            </div>
-
 
                         </div>
                         <div class="modal-footer">
@@ -107,23 +108,23 @@
                 </div>
                 <form wire:submit.prevent="store()">
                     <div class="modal-body">
-                        <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3">
                             <label>العنوان</label>
                             <input type="text" wire:model="address" class="form-control">
                             @error('address') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label>ملاحظات</label>
                             <input type="text" wire:model="notes" class="form-control">
                             @error('notes') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-                        <div class="mb-3">
+                        <div class="col-sm-4 mb-3">
                             <label>الصوره</label>
                             <input type="file" wire:model="image" accept="image/*" class="form-control">
                             @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
-
-
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" wire:click="closeModal"
